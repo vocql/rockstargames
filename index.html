@@ -1,1 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Rockstar Games Library</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Orbitron',sans-serif;
+background:#000;
+color:#fff;
+min-height:100vh;
+}
+
+.page{
+width:clamp(900px,90vw,1440px);
+margin:120px auto;
+}
+
+h1{
+text-align:center;
+font-size:48px;
+margin-bottom:60px;
+}
+
+.game-list{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:32px;
+justify-items:center;
+}
+
+.game-card{
+aspect-ratio:2/3;
+width:100%;
+max-width:230px;
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+position:relative;
+background:#111;
+box-shadow:0 15px 40px rgba(0,0,0,.7);
+transition:.3s;
+}
+
+.game-card:hover{
+transform:translateY(-8px) scale(1.05);
+}
+
+.game-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.card-overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:14px;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+}
+
+.card-overlay h2{
+font-size:16px;
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+}
+
+.modal.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.modal-content{
+background:#111;
+padding:30px;
+border-radius:18px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+max-width:900px;
+width:90%;
+}
+
+.modal img{
+width:100%;
+border-radius:12px;
+}
+
+.close-btn{
+position:absolute;
+top:20px;
+right:30px;
+font-size:28px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<h1>Rockstar Games</h1>
+
+<div class="game-list">
+
+<!-- GTA SERIES -->
+
+<div class="game-card" data-name="Grand Theft Auto VI" data-img="covers/gta6.jpg" data-desc="Upcoming Grand Theft Auto title set in Leonida.">
+<img src="covers/gta6.jpg">
+<div class="card-overlay"><h2>GTA VI</h2></div>
+</div>
+
+<div class="game-card" data-name="Grand Theft Auto V" data-img="covers/gta5.jpg" data-desc="Los Santos crime saga.">
+<img src="covers/gta5.jpg">
+<div class="card-overlay"><h2>GTA V</h2></div>
+</div>
+
+<div class="game-card" data-name="Grand Theft Auto IV" data-img="covers/gta4.jpg" data-desc="">
+<img src="covers/gta4.jpg">
+<div class="card-overlay"><h2>GTA IV</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA San Andreas" data-img="covers/gtasa.jpg" data-desc="">
+<img src="covers/gtasa.jpg">
+<div class="card-overlay"><h2>San Andreas</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA Vice City" data-img="covers/gtavc.jpg">
+<img src="covers/gtavc.jpg">
+<div class="card-overlay"><h2>Vice City</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA III" data-img="covers/gta3.jpg">
+<img src="covers/gta3.jpg">
+<div class="card-overlay"><h2>GTA III</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA Liberty City Stories" data-img="covers/lcs.jpg">
+<img src="covers/lcs.jpg">
+<div class="card-overlay"><h2>Liberty City Stories</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA Vice City Stories" data-img="covers/vcs.jpg">
+<img src="covers/vcs.jpg">
+<div class="card-overlay"><h2>Vice City Stories</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA Chinatown Wars" data-img="covers/chinatown.jpg">
+<img src="covers/chinatown.jpg">
+<div class="card-overlay"><h2>Chinatown Wars</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA 2" data-img="covers/gta2.jpg">
+<img src="covers/gta2.jpg">
+<div class="card-overlay"><h2>GTA 2</h2></div>
+</div>
+
+<div class="game-card" data-name="GTA 1" data-img="covers/gta1.jpg">
+<img src="covers/gta1.jpg">
+<div class="card-overlay"><h2>GTA</h2></div>
+</div>
+
+
+<!-- RED DEAD -->
+
+<div class="game-card" data-name="Red Dead Redemption 2" data-img="covers/rdr2.jpg">
+<img src="covers/rdr2.jpg">
+<div class="card-overlay"><h2>RDR2</h2></div>
+</div>
+
+<div class="game-card" data-name="Red Dead Redemption" data-img="covers/rdr1.jpg">
+<img src="covers/rdr1.jpg">
+<div class="card-overlay"><h2>RDR</h2></div>
+</div>
+
+<div class="game-card" data-name="Red Dead Revolver" data-img="covers/revolver.jpg">
+<img src="covers/revolver.jpg">
+<div class="card-overlay"><h2>Red Dead Revolver</h2></div>
+</div>
+
+
+<!-- OTHER ROCKSTAR GAMES -->
+
+<div class="game-card" data-name="Bully" data-img="covers/bully.jpg">
+<img src="covers/bully.jpg">
+<div class="card-overlay"><h2>Bully</h2></div>
+</div>
+
+<div class="game-card" data-name="Max Payne 3" data-img="covers/maxpayne3.jpg">
+<img src="covers/maxpayne3.jpg">
+<div class="card-overlay"><h2>Max Payne 3</h2></div>
+</div>
+
+<div class="game-card" data-name="Max Payne 2" data-img="covers/maxpayne2.jpg">
+<img src="covers/maxpayne2.jpg">
+<div class="card-overlay"><h2>Max Payne 2</h2></div>
+</div>
+
+<div class="game-card" data-name="Max Payne" data-img="covers/maxpayne1.jpg">
+<img src="covers/maxpayne1.jpg">
+<div class="card-overlay"><h2>Max Payne</h2></div>
+</div>
+
+<div class="game-card" data-name="L.A. Noire" data-img="covers/lanoire.jpg">
+<img src="covers/lanoire.jpg">
+<div class="card-overlay"><h2>L.A. Noire</h2></div>
+</div>
+
+<div class="game-card" data-name="Manhunt" data-img="covers/manhunt.jpg">
+<img src="covers/manhunt.jpg">
+<div class="card-overlay"><h2>Manhunt</h2></div>
+</div>
+
+<div class="game-card" data-name="Manhunt 2" data-img="covers/manhunt2.jpg">
+<img src="covers/manhunt2.jpg">
+<div class="card-overlay"><h2>Manhunt 2</h2></div>
+</div>
+
+<div class="game-card" data-name="Midnight Club LA" data-img="covers/mcla.jpg">
+<img src="covers/mcla.jpg">
+<div class="card-overlay"><h2>Midnight Club LA</h2></div>
+</div>
+
+<div class="game-card" data-name="Midnight Club 3" data-img="covers/mc3.jpg">
+<img src="covers/mc3.jpg">
+<div class="card-overlay"><h2>Midnight Club 3</h2></div>
+</div>
+
+<div class="game-card" data-name="Midnight Club 2" data-img="covers/mc2.jpg">
+<img src="covers/mc2.jpg">
+<div class="card-overlay"><h2>Midnight Club 2</h2></div>
+</div>
+
+<div class="game-card" data-name="The Warriors" data-img="covers/warriors.jpg">
+<img src="covers/warriors.jpg">
+<div class="card-overlay"><h2>The Warriors</h2></div>
+</div>
+
+<div class="game-card" data-name="Table Tennis" data-img="covers/tabletennis.jpg">
+<img src="covers/tabletennis.jpg">
+<div class="card-overlay"><h2>Table Tennis</h2></div>
+</div>
+
+</div>
+</main>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close-btn" id="closeBtn">✕</span>
+<img id="modalImg">
+<div>
+<h2 id="modalTitle"></h2>
+<p id="modalDesc"></p>
+</div>
+</div>
+</div>
+
+<script>
+
+const cards=document.querySelectorAll('.game-card')
+const modal=document.getElementById('modal')
+const modalImg=document.getElementById('modalImg')
+const modalTitle=document.getElementById('modalTitle')
+const modalDesc=document.getElementById('modalDesc')
+const closeBtn=document.getElementById('closeBtn')
+
+cards.forEach(card=>{
+card.onclick=()=>{
+modalImg.src=card.dataset.img
+modalTitle.textContent=card.dataset.name
+modalDesc.textContent=card.dataset.desc
+modal.classList.add('active')
+}
+})
+
+closeBtn.onclick=()=>modal.classList.remove('active')
+
+modal.onclick=e=>{
+if(e.target===modal) modal.classList.remove('active')
+}
+
+</script>
+
+</body>
+</html>
